@@ -44,10 +44,10 @@ cursor = connection.cursor()
 
 # ДОМАШНЄ ЗАВДАННЯ 
 # Скільки художників в базі даних мають національність "American"?
-# cursor.execute('''SELECT * FROM artists WHERE "Nationality" = "American" ''')
-# american = cursor.fetchall()
-# # for artist in american:
-# print(len(american))
+cursor.execute('''SELECT * FROM artists WHERE "Nationality" = "American" ''')
+american = cursor.fetchall()
+# for artist in american:
+print(len(american))
 
 
 # Додаткове завдання* Як звати  наймолодшого художника?
@@ -55,17 +55,17 @@ cursor = connection.cursor()
 # Знайти художника з найстарішим роком народження (тобто найстаршого художника).
 
 
-# cursor.execute('''SELECT * FROM artists ORDER BY "Birth Year"  ''')
-# young = cursor.fetchall()
-# for artist in young:
-    # print (f"{artist[1]} - {artist[-1]}")
+cursor.execute('''SELECT * FROM artists ORDER BY "Birth Year" DESC''')
+artist = cursor.fetchone()
+
+print (f"{artist[1]} - {artist[-1]}")
 
 
 
 # Знайти всіх художників, які народилися між 1850 і 1900 роками.
 
 
-# cursor.execute(''' SELECT * FROM artists WHERE "Birth Year" >= 1850 and "Birth Year"  <= 1900''')
+# cursor.execute(''' SELECT * FROM artists WHERE "Birth Year" >= 1850 AND "Birth Year"  <= 1900''')
 # years = cursor.fetchall()
 # for artist in years:
 #     print(f"{artist[-1]} - {artist[1]}")
