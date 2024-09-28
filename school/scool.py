@@ -6,10 +6,10 @@ cursor.execute(''' SELECT * FROM students''')
 students = cursor.fetchall()
 
 
-cursor.execute('''DELETE  FROM students WHERE name = "Serhii" ''')
-cursor.execute('''DELETE  FROM students WHERE name = "yef" ''')
-bad_students = cursor.fetchall()
-connection.commit()
+# cursor.execute('''DELETE  FROM students WHERE name = "Serhii" ''')
+# cursor.execute('''DELETE  FROM students WHERE name = "yef" ''')
+# bad_students = cursor.fetchall()
+# connection.commit()
 
 # cursor.execute('''INSERT INTO students("name","surname","grade","age")
 #                VALUES (?,?,?,?)''',["Anna","Kravets",8,16])
