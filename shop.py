@@ -15,12 +15,16 @@ while True:
         for item in items:
             print(f"{item[0]} - {item[1]} - {item[3]} гривень!")
 
-        item_id = input("ВВедіть ід товару:")
+        item_id = input("ВВедіть ід товару:")      
+        while item_id != 1 or item_id != 2:
+            print("Помилка. Введіть заново!")
+            item_id = input("ВВедіть ід товару:")
+       
         item = db.get_item(item_id)
         print(f"----------------------------")
         print(f"{item[4]}\n{item[1]} \n{item[2]}\n{item[3]}  гривень!")
         answer  = input("Чи ви хочете додати  товар до кошика?").lower()
-        if answer == "так":
+        if answer == "так" or answer == "yes":
             if not current_order:
                 current_order = db.create_order()
             quantity = int(input("Скільки одиниць товару бажаєте придбати?"))
@@ -37,6 +41,14 @@ while True:
         for category in categories:
             print(f"{category[0]} - {category[1]}")
         category_id = int(input("ВВедіть айді категорії:"))
+        if category_id != 1 or category_id != 2 or category_id !=3:
+            print("Помилка!")
+            category_id = int(input("ВВедіть айді категорії:"))
+            while category_id != 1 or category_id != 2 or category_id !=3:
+                print("Помилка!")
+                category_id = int(input("ВВедіть айді категорії:"))
+
+
         items = db.get_items_by_category_id(category_id)
         for item in items:
             print(f"{item[0]} - {item[1]} - {item[3]} гривень!")
